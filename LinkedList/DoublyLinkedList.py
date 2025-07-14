@@ -98,6 +98,16 @@ class Doubly():
             temp.prev.next = temp.next
         if temp.next:
             temp.next.prev = temp.prev
+    
+    def reverse(self):
+        prev_node = None
+        temp = self.head
+        while temp is not None:
+            temp.next, temp.prev = temp.prev,temp.next
+            prev_node = temp
+            temp = temp.prev
+        self.head = prev_node
+            
         
     
     def print_list(self):
@@ -119,5 +129,7 @@ d.insertAtEnd(8)
 d.insertAtLoc(7,3)
 # d.deleteAtBegin()
 # d.deleteAtEnd()
-d.deleteAtLoc(2)
+# d.deleteAtLoc(2)
+d.print_list()
+d.reverse()
 d.print_list()
