@@ -131,6 +131,22 @@ class CircularSingly():
         temp1.next = temp.next
         del temp
     
+    def reverse(self):
+        if self.head is None or self.head.next == self.head:
+            return 
+        temp = self.head
+        temp1 = temp
+        prev = None
+        while temp.next is not self.head:
+            next_node = temp.next
+            temp.next = prev
+            prev = temp
+            temp = next_node
+            
+        temp.next = prev
+        self.head = temp
+        temp1.next = self.head
+    
     def print_list(self):
         if self.head is None:
             print("List is Empty")
@@ -155,5 +171,7 @@ c.insertAtLoc(25,1)
 c.print_list()
 # c.deleteAtBegin()
 # c.deleteAtEnd()
-c.deleteAtLoc(0)
+# c.deleteAtLoc(0)
+
+c.reverse()
 c.print_list()
